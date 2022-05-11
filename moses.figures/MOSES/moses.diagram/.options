@@ -1,0 +1,7 @@
+# Tracing options for the moses.diagram plug-in
+
+# Common issues
+moses.diagram/debug=false
+
+# Visual IDs
+moses.diagram/debug/visualID=false

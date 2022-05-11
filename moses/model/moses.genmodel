@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/moses/src" modelPluginID="moses"
+    modelName="Moses" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>moses.emf</foreignModel>
+  <genPackages prefix="Moses" disposableProviderFactory="true" ecorePackage="moses.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//PacketHeaders"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//Actions"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//Conditions"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//RelationalOperators"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//AppTypes"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//ControllerTypes"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="moses.ecore#//Instructions"/>
+    <genClasses ecoreClass="moses.ecore#//Sdn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference moses.ecore#//Sdn/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference moses.ecore#//Sdn/apps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference moses.ecore#//Sdn/ruleObjects"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="moses.ecore#//NetworkNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//NetworkNode/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//NetworkNode/mac"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//NetworkNode/ip"/>
+    </genClasses>
+    <genClasses ecoreClass="moses.ecore#//Controller"/>
+    <genClasses ecoreClass="moses.ecore#//Host">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Host/hostSwitch"/>
+    </genClasses>
+    <genClasses ecoreClass="moses.ecore#//Switch">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Switch/switchController"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Switch/switches"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="moses.ecore#//AppObject"/>
+    <genClasses ecoreClass="moses.ecore#//Rule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Rule/flowRule"/>
+    </genClasses>
+    <genClasses ecoreClass="moses.ecore#//App">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//App/appToPacketHeader"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//App/appToNetworkNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//App/controllerApp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//App/appRule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//App/name"/>
+    </genClasses>
+    <genClasses ecoreClass="moses.ecore#//Traffic"/>
+    <genClasses ecoreClass="moses.ecore#//PacketHeader"/>
+    <genClasses ecoreClass="moses.ecore#//Flow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Flow/flowSourceHost"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference moses.ecore#//Flow/flowDestinationHost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//Flow/matchFields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute moses.ecore#//Flow/matchValues"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

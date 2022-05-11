@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moses">
+  <eClassifiers xsi:type="ecore:EClass" name="Objective">
+    <eOperations name="setAchieved"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="achieved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preferredActions" upperBound="-1"
+        eType="ecore:EEnum moses.ecore#//Actions" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metric" eType="#//PROPERTY"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectiveToFlow" upperBound="-1"
+        eType="ecore:EClass moses.ecore#//Flow"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EEnum moses.ecore#//RelationalOperators"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" instanceTypeName="Requirement">
+    <eOperations name="setFulfilled"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFulfilled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ACTIONS">
+    <eLiterals name="INCREASE"/>
+    <eLiterals name="DECREASE" value="1" literal="DECREASE"/>
+    <eLiterals name="FORWARD" value="2"/>
+    <eLiterals name="DROP" value="3"/>
+    <eLiterals name="START_APP" value="5"/>
+    <eLiterals name="DELEGATE" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eOperations name="execute"/>
+    <eOperations name="addAction"/>
+    <eOperations name="activate"/>
+    <eOperations name="deactivate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//ACTIONS"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="#//PROPERTY"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionToNetworkNode" upperBound="-1"
+        eType="ecore:EClass moses.ecore#//NetworkNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionToFlow" upperBound="-1"
+        eType="ecore:EClass moses.ecore#//Flow"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+        eType="#//Requirement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PROPERTY">
+    <eLiterals name="BANDWIDTH"/>
+    <eLiterals name="DELAY" value="1"/>
+    <eLiterals name="COMPATIBILITY" value="2"/>
+    <eLiterals name="TCAM_SPACE" value="3"/>
+    <eLiterals name="THROUGHPUT" value="4"/>
+  </eClassifiers>
+</ecore:EPackage>

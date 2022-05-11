@@ -1,0 +1,6 @@
+*.pyd
+*.pyc
+/bin
+bin
+.class
+**\venv
